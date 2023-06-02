@@ -1,0 +1,83 @@
+// 3 Digit Armstrong number 
+
+import java.util.Scanner;
+class Am_1
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        boolean ans = isArmstrong(n);
+        System.out.println(ans);
+
+
+    }
+
+    static boolean isArmstrong(int n)
+    {
+        int original = n;
+        int sum = 0;
+
+        while(n>0)
+        {
+            int rem = n%10;
+            n = n/10;
+            sum = sum + rem*rem*rem;
+        }
+
+        if(sum == original)
+        {
+            System.out.println("number is armstrong");
+            return true;
+        }
+        return false;
+
+    }
+
+}
+
+
+//find nth Armstrong number 
+public class AM_2
+{
+    public static void main(String args[])
+    {
+        int n =12;
+        System.out.println(Nth_AM(n));
+
+    }
+
+    static int Nth_AM(int n)
+    {
+        int count = 0;
+        for(int i =1; i<= Integer.MAX_VALUE; i++)
+        {
+            int num = i;
+            int rem=0 ;
+            int digit=0;
+            int sum=0;
+            num = i;
+
+            digit = (int)Math.log10(num) + 1;
+
+            while(num > 0)
+            {
+                rem = num % 10;
+                sum = sum + (int)Math.pow(rem, digit);
+                num = num/10;
+
+            }  
+
+            if (i == sum)
+            
+                 
+                count++;
+            if(count ==n)
+            return i ;
+}
+        return n;
+}
+    
+}
